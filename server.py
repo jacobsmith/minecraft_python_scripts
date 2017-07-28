@@ -4,6 +4,7 @@ import mcpi.block as block
 
 mc = minecraft.Minecraft.create(address="127.0.0.1", name="steve")
 
+# You can specify multiple 'server' instances here to monitor different players and allow them each to respond to different commands
 servers = [
     {
         'server': mc,
@@ -20,6 +21,7 @@ POSITIVE_Z = "z"
 NEGATIVE_Z = "-z"
 
 def getPlayerFacing(server):
+    # we multiply it by negative one because it's easier to reason through positive integers
     direction = server.player.getRotation() * -1
 
     if 45 < direction < 135:
